@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     protected
     
     def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sin_up, keys: [:email])
+        devise_parameter_sanitizer.permit(:sin_up, keys: [:name])
     end 
     
 end
