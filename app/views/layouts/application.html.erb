@@ -6,12 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pa_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
+      <li>
+        <%= link_to "Home",root_path %>
+      </li>
+      <li>
+        <%= link_to "About",about_path %>
+      </li>
       <% if user_signed_in? %>
       <li>
         <%= link_to "Log out", destroy_user_session_path,method: :delete %>
