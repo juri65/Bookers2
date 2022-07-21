@@ -38,7 +38,7 @@
       
       <li>
         <%= link_to "Books",books_path %>
-        <i class="fas fa-book-open"></i>
+         <i class="fas fa-book-open"></i>
       </li>
       <li>
         <%= link_to "Log out", destroy_user_session_path,method: :delete %>
@@ -68,6 +68,12 @@
       </nav>
     </header>
     <%= yield %>
-    
+    <footer>
+        <div class="container mt-5">
+            <div class="mx-auto">
+                <p>CopyRight Infratop.inc</p>
+            </div>
+        </div>
+    </footer>
   </body>
 </html>
