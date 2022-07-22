@@ -1,5 +1,12 @@
 <h3>(indexページ)</h3>
 
+<h2>User info</h2>
+
+<!--ユーザー編集-->
+
+<i class="fas fa-user-cog"></i>
+
+
 <h1>New book</h1>
 <%= form_with model: Book.new do |f| %>
   <h4>Title</h4>
@@ -11,15 +18,22 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-
-<h1>Books</h1>
-
-<%= @books.each do |book| %>
-
-  <p>Title</p>
-  <span><%= book.title %></span>
-  
-  <p>Opinion</p>
-  <span><%= book.body %></span>
-  
-<% end %>
+<h2>Books</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @books.each do |book| %>
+        <tr>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+            <td><%= link_to 'Edit',"/books/#{book.id}/edit" %></td>
+            <td><%= link_to "Destroy.", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %></td>
+        </tr>
+       <% end %>
+    </tbody>
+</table>
