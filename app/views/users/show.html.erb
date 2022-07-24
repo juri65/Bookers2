@@ -15,6 +15,9 @@
 
 <!-- user編集 -->
 <%# link_to "<i class="fas fa-user-cog"></i>", edit_user_path %>
+<%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary" do %>
+<i class="fas fa-user-cog"></i>
+<% end %>
 
 <!--投稿フォーム-->
 <h1>New book</h1>
