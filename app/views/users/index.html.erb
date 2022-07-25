@@ -12,8 +12,11 @@
         </thead>
         <tbody>
             <% @users.each do |user| %>
-            <%= image_tag @user.get_profile_image(100,100) %>
-            <%= link_to user_path(user) do %>
+            <tr>
+                <td><%= image_tag @user.get_profile_image(100,100) %></td>
+                <td><%= @user.name %></td>
+                <td><%= link_to 'show',user_path(@user.id) %></td>
+            </tr>
             <% end %>
         </tbody>
     </table>

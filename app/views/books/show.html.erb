@@ -1,2 +1,17 @@
-<h1>Books#show　詳細</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+
+    <h2>Book detail</h2>
+    <table class="table">
+        <tbody>
+            <% @books.each do |book| %>
+            <tr>
+                <td><%= image_tag @user.get_profile_image(100,100) %></td>
+                <td><%= book.title %></td>
+                <td><%= book.body %></td>
+                <% if book.user == current_user %>
+                <td><%= link_to 'Edit',"/books/#{book.id}/edit" %></td>
+                <td><%= link_to "Destroy.", book_path(book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+                <% end %>
+            </tr>
+        </tbody>
+    </table>
+
