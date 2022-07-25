@@ -6,10 +6,10 @@
     <div class="row">
       <div class="col-md-3">
        <h2>User info</h2>
-       <%= image_tag @user.get_profile_image(100,100) %><br>
+       
        <table class="table">
          <tbody>
-           <tr></tr>
+           <tr><%= image_tag @user.get_profile_image(100,100) %></tr><br>
            <tr>name<%= @user.name %></tr><br>
            <tr>introduction<%= @user.introduction %></tr>
          </tbody>
