@@ -1,11 +1,23 @@
 class UsersController < ApplicationController
-  
+   
+  def create
+      @user = User.new(user_params)
+      @user = current_user.id
+    if @user.save
+      redirect_to user_path(@user.id)
+    else
+      @user = current_user
+      render :index
+    end  
+  end
+    
   def index
     @users = User.all
     @user = current_user
   end 
   
   def show
+    @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
   end

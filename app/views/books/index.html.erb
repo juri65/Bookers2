@@ -1,3 +1,14 @@
+
+<% if @book.errors.any? %>
+<%= @book.errors.count %>error prohibited this obj from being saved:
+<ul>
+  <% @book.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
 <!-- ユーザー詳細 -->
 <main>
   <div class="container px-5 px-sm0">
@@ -24,6 +35,7 @@
 
 <!--投稿フォーム-->
 <h1>New book</h1>
+
 <%= form_with model: Book.new do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
