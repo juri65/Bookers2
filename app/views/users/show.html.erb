@@ -7,19 +7,21 @@
        <%= image_tag @user.get_profile_image(100,100) %><br>
        <table class="table">
          <tbody>
-           <tr></tr>
-           <tr>name</tr>
-           <tr><%= @user.name %></tr><br>
-           <tr>introduction</tr>
-           <tr><%= @user.introduction %></tr>
+          <tr></tr>
+           <tr>
+           <th>name</th>
+           <th><%= @user.name %></th><br>
+           </tr>
+           <tr>
+           <th>introduction</th>
+           <th><%= @user.introduction %></th>
+           </tr>
          </tbody>
        </table>
 <!-- user編集 -->
 <div class="row">
-    <% if @user == current_user %>
 <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary" do %>
 <i class="fas fa-user-cog"></i>
-<% end %>
 <% end %>
 </div>
 
