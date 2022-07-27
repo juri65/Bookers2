@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :baria_user ,only:[:edit,:update ]
    
   def create
       @user = User.new(user_params)
@@ -40,6 +41,12 @@ class UsersController < ApplicationController
    
    def user_params
      params.require(:user).permit(:name, :profile_image, :introduction)
+   end 
+   
+   def baria_user
+       if params[:id].to_i != current_user.id
+           redirect_to user_path(current_user)
+       end 
    end 
    
 end
